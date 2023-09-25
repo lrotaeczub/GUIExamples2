@@ -141,11 +141,6 @@ public class ContactEditor extends javax.swing.JFrame {
 
         jLabel6.setText("E-mail Address:");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "john.guy@xxxxxx.yyy", "gui@yyyyyy.xxx" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Add");
