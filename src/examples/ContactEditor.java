@@ -18,6 +18,7 @@
  */
 
 package examples;
+import javax.swing.JOptionPane;
 
 public class ContactEditor extends javax.swing.JFrame {
     
@@ -65,6 +66,11 @@ public class ContactEditor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("E-mail Contacts");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(" Name "));
 
@@ -229,6 +235,11 @@ public class ContactEditor extends javax.swing.JFrame {
         );
 
         jButton5.setText("Cancel");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("OK");
 
@@ -266,6 +277,26 @@ public class ContactEditor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        //Al cerrar (pulsar X) la GUI de la aplicación que pida confirmación. Si la opción es no se cierra la aplicación.
+        int respuesta = JOptionPane.showConfirmDialog(null,"¿Salir del programa?",null,JOptionPane.YES_NO_OPTION);
+        switch (respuesta) {
+            case JOptionPane.YES_OPTION:
+                System.exit(0);
+                break;
+            case JOptionPane.NO_OPTION:
+                setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);//cancel
+                break;
+            default:
+                break;
+            }
+    }//GEN-LAST:event_formWindowClosing
     
     /**
      * @param args the command line arguments
